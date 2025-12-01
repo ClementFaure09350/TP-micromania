@@ -1,0 +1,23 @@
+FROM webdevops/php-apache:8.3-alpine
+
+# Installation des extensions supplémentaire
+RUN apk --no-cache add icu-dev \
+    && docker-php-ext-install pdo pdo_mysql \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl \
+    && docker-php-ext-enable intl
+
+# Installation de xdebug
+RUN apk --no-cache --update add linux-headers pcre-dev ${PHPIZE_DEPS} \ 
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && apk del linux-headers pcre-dev ${PHPIZE_DEPS}
+
+# Installation de composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+# Configuration des permissions pour le répertoire web
+RUN chown -R www-data:www-data /var/www/html
+
+# Déclaration du répertoire de travail
+WORKDIR /var/www/html
