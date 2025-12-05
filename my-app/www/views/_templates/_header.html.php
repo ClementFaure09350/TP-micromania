@@ -64,7 +64,7 @@
         </script>
     <?php endif; ?>
 
-    <div class="bg-green-600 flex">
+    <!--<div class="bg-green-600 flex">
         <h1><a href="/">Micromania</a></h1>
         <button><a href="/adminpage">admin</a></button>
         <div>
@@ -73,4 +73,18 @@
                 <button class="border border-gray-600"><a href="/login">Connexion</a></button>
             </div>
         </div>
+    </div>-->
+
+    <header class="bg-gradient-to-r from-blue-800 to-green-500 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="text-3xl font-bold uppercase tracking-wider"><a href="/">🎮 Micromania</a></div>
+            <nav class="flex gap-6">
+                
+                <a href="/adminpage" class="hover:opacity-80 transition text-2xl font-medium">Admin</a>
+                <a href="/login" class="hover:opacity-80 transition text-2xl font-medium">Connexion</a>
+                <a href="/basket" class="hover:opacity-80 transition text-2xl font-medium">Panier</a>
+            </nav>
+        </div>
+    </header>
+    <div class="bg-blue-300 p-0.5">
     </div>

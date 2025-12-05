@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
 <body>
     <div>
         <div class="center">
-            <h1>Bienvenue admin, que veut tu faire ?</h1>
-            <div class="bg-blue-600 display-center">
-                <button class="border border-gray-600"><a href="/adminmodif">a</a></button>
-                <button class="border border-gray-600"><a href="/order">b</a></button>
+            <div class="bg-gradient-to-r from-black to-blue-900 min-h-screen py-12">
+                <div class="max-w-md mx-auto bg-gray-800 rounded-lg shadow-lg p-8 bg-gray-900 border-2 border-green-600 rounded-lg overflow-hidden">
+                    <h2 class="text-4xl font-bold uppercase text-green-700 mb-10">Bienvenue admin, que veut tu faire ?</h2>
+                    <div class="space-y-4">
+                        <button class="text-2xl w-full bg-gradient-to-r from-blue-800 to-green-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150"><a href="/adminmodif">Modifier le catalogue</a></button>
+                        <button class="text-2xl w-full bg-gradient-to-r from-blue-800 to-green-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150"><a href="/order">S'occuper des commandes</a></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+    </div>

@@ -19,6 +19,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 use App\Controller\AdminmodifpageController;
 use App\Controller\AdminpageController;
+use App\Controller\AuthController;
 use App\Controller\BasketController;
 use JulienLinard\Core\Application;
 use JulienLinard\Core\Middleware\CsrfMiddleware;
@@ -164,7 +165,7 @@ $router = $app->getRouter();
 // Ici, il génère le token CSRF si nécessaire et le vérifie pour POST/PUT/DELETE
 // CONCEPT : CSRF Protection (Cross-Site Request Forgery)
 // Protection contre les attaques où un site malveillant fait des requêtes en votre nom
-$router->addMiddleware(new CsrfMiddleware());
+//$router->addMiddleware(new CsrfMiddleware());
 
 // ============================================
 // ÉTAPE 8 : CONFIGURATION DU SYSTÈME D'ÉVÉNEMENTS
@@ -183,8 +184,7 @@ EventListenerService::register($events, $logger);
 // Les routes sont définies directement dans les contrôleurs avec des attributs #[Route]
 // Le router scanne les contrôleurs et enregistre automatiquement les routes
 $router->registerRoutes(HomeController::class);
-$router->registerRoutes(LoginController::class);
-$router->registerRoutes(RegisterController::class);
+$router->registerRoutes(AuthController::class);
 $router->registerRoutes(AdminpageController::class);
 $router->registerRoutes(BasketController::class);
 $router->registerRoutes(AdminmodifpageController::class);

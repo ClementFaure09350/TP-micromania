@@ -4,7 +4,7 @@ services:
     container_name: ${APACHE_CONTAINER:-apache_app}
     restart: unless-stopped
     ports:
-      - "${APACHE_PORT:-80}:80"
+      - "${APACHE_PORT:-82}:80"
     volumes:
       - ./www:/var/www/html
       - ./apache/custom-php.ini:/usr/local/etc/php/conf.d/custom-php.ini
@@ -31,7 +31,7 @@ services:
     container_name: ${MARIADB_CONTAINER:-mariadb_app}
     restart: unless-stopped
     ports:
-      - "${MARIADB_PORT:-3306}:3306"
+      - "${MARIADB_PORT:-3307}:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
       - MYSQL_DATABASE=${MYSQL_DATABASE:-app_db}
