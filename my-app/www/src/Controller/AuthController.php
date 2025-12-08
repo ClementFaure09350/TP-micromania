@@ -13,6 +13,7 @@ declare(strict_types=1);
  
 namespace App\Controller;
  
+
 use App\Entity\User;
 use JulienLinard\Router\Request;
 use JulienLinard\Router\Response;
@@ -33,7 +34,6 @@ class AuthController extends Controller
     public function __construct(
         private AuthManager $auth,
         private EntityManager $em,
-        private UserRepository $userRepository,
         private Validator $validator
     ) {}
     
@@ -138,7 +138,8 @@ class AuthController extends Controller
             $errors['email'] = 'L\'email n\'est pas valide';
         } else {
             // Vérifier si l'email existe déjà
-            if ($this->userRepository->emailExists($email)) {
+            $userRepo = $this->em->createRepository(UserRepository::class, User::class);
+            if ($userRepo->emailExists($email)) {
                 $errors['email'] = 'Cet email est déjà utilisé';
             }
         }
@@ -183,7 +184,8 @@ class AuthController extends Controller
             $user->password = password_hash($password, PASSWORD_BCRYPT);
             $user->firstname = $firstname;
             $user->lastname = $lastname;
-            $user->is_admin = false;
+            $user->role = 'user';
+            $user->created_at = new \DateTime();
             
             $this->em->persist($user);
             $this->em->flush();
@@ -211,7 +213,7 @@ class AuthController extends Controller
      *
      * CONCEPT : Route protégée par AuthMiddleware (seulement pour les utilisateurs authentifiés)
      */
-    #[Route(path: '/logout', methods: ['POST'], name: 'logout', middleware: [new AuthMiddleware()])]
+    #[Route(path: '/logout', methods: ['GET'], name: 'logout', middleware: [new AuthMiddleware()])]
     public function logout(): Response
     {
         $this->auth->logout();
@@ -219,4 +221,3 @@ class AuthController extends Controller
         return $this->redirect('/');
     }
 }
- 

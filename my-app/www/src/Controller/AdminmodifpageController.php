@@ -17,7 +17,7 @@ class AdminmodifpageController extends Controller
     {
         return $this->view('adminmodif/index', [
             'title' => 'Welcome',
-            'message' => 'tu es dans le login'
+            'message' => 'tu es dans l admin modif'
         ]);
     }
 }

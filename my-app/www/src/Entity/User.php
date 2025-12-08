@@ -12,7 +12,7 @@ use JulienLinard\Auth\Models\UserInterface;
 use JulienLinard\Doctrine\Mapping\OneToMany;
 use JulienLinard\Doctrine\Mapping\Index;
 
-#[Entity(table: "users")]
+#[Entity(table: "user")]
 class User implements UserInterface{
 
     use Authenticatable;
@@ -36,11 +36,9 @@ class User implements UserInterface{
     #[Column(type:"datetime", nullable: true)]
     public ?DateTime $created_at;
 
-    #[Column(type:"bool", default: true)]
-    public bool $is_active;
 
-    #[Column(type:"bool", default: false)]
-    public bool $is_admin;
+    #[Column(type:"string", default: 'user')]
+    public string $role;
 
     #[OneToMany(targetEntity: Basket::class, mappedBy: 'user', cascade: ['persist', 'remove'])]
     public array $basket = [];
@@ -65,7 +63,7 @@ class User implements UserInterface{
     public function getAuthPermissions(): array
     {
         // Permissions basées sur le rôle
-        return match($this->is_admin) {
+        return match($this->role) {
             'admin' => ['manage-users', 'edit-posts', 'delete-posts'],
             'moderator' => ['edit-posts', 'delete-posts'],
             'user' => ['view-posts'],

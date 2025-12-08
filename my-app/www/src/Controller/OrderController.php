@@ -17,7 +17,7 @@ class OrderController extends Controller
     {
         return $this->view('order/index', [
             'title' => 'Welcome',
-            'message' => 'tu es dans le login'
+            'message' => 'tu es dans le l order'
         ]);
     }
 }

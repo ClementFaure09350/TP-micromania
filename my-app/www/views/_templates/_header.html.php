@@ -78,11 +78,11 @@
     <header class="bg-gradient-to-r from-blue-800 to-green-500 shadow-lg">
         <div class="max-w-6xl mx-auto px-4 py-6 flex justify-between items-center">
             <div class="text-3xl font-bold uppercase tracking-wider"><a href="/">🎮 Micromania</a></div>
-            <nav class="flex gap-6">
-                
+            <nav class="flex gap-6">   
                 <a href="/adminpage" class="hover:opacity-80 transition text-2xl font-medium">Admin</a>
                 <a href="/login" class="hover:opacity-80 transition text-2xl font-medium">Connexion</a>
                 <a href="/basket" class="hover:opacity-80 transition text-2xl font-medium">Panier</a>
+                <a href="/logout" class="hover:opacity-80 transition text-2xl font-medium">Déconnexion</a>
             </nav>
         </div>
     </header>

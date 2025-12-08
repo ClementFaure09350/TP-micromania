@@ -21,6 +21,9 @@ use App\Controller\AdminmodifpageController;
 use App\Controller\AdminpageController;
 use App\Controller\AuthController;
 use App\Controller\BasketController;
+use App\Controller\GameaddController;
+use App\Controller\GamemodifController;
+use App\Controller\GamesupController;
 use JulienLinard\Core\Application;
 use JulienLinard\Core\Middleware\CsrfMiddleware;
 use JulienLinard\Validator\Validator as PhpValidator;
@@ -189,6 +192,9 @@ $router->registerRoutes(AdminpageController::class);
 $router->registerRoutes(BasketController::class);
 $router->registerRoutes(AdminmodifpageController::class);
 $router->registerRoutes(OrderController::class);
+$router->registerRoutes(GameaddController::class);
+$router->registerRoutes(GamemodifController::class);
+$router->registerRoutes(GamesupController::class);
 
 
 // Démarrer l'application

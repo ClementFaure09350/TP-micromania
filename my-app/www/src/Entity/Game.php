@@ -32,6 +32,9 @@ class Game{
     #[Column(type:"int")]
     public int $stock;
 
+    #[Column(type:"string", nullable:true, length:255)]
+    public string $title;
+
     #[OneToMany(targetEntity: Basket::class, mappedBy: 'game', cascade: ['persist', 'remove'])]
     public array $basket = [];
 
