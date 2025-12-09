@@ -44,4 +44,4 @@ class Game{
     #[OneToMany(targetEntity: Game_platform::class, mappedBy: 'game', cascade: ['persist', 'remove'])]
     public array $platform = [];
 
-};
+}

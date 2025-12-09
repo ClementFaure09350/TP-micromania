@@ -13,8 +13,8 @@ $old = $old ?? ['title' => '', 'description' => ''];
             </div>
         <?php endif; ?>
 
-        <form method="POST" action="/" enctype="multipart/form-data" class="space-y-6">
-            
+        <form method="POST" action="/gameadd" enctype="multipart/form-data" class="space-y-6">
+            <?= \JulienLinard\Core\Middleware\CsrfMiddleware::field() ?>
 
             <!-- Title -->
             <div>
